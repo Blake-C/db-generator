@@ -1,3 +1,7 @@
+import $ from 'jquery';
+
 (function(){
-	// Code Goes Here
+	$(document).ready(function(){
+
+	});
 })();
