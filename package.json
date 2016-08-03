@@ -28,6 +28,7 @@
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.5.0",
     "imagemin-pngquant": "^5.0.0",
+    "modernizr-webpack-plugin": "^1.0.5",
     "path": "^0.12.7",
     "webpack": "^1.13.1",
     "webpack-stream": "^3.2.0",
@@ -37,7 +38,6 @@
     "foundation-sites": "^6.2.3",
     "jquery": "^3.1.0",
     "jump.js": "^1.0.1",
-    "lscache": "^1.0.7",
-    "modernizr": "^3.3.1"
+    "lscache": "^1.0.7"
   }
 }

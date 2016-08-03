@@ -7,8 +7,9 @@
  * Eslint config for module loaders:
  * @link https://github.com/eslint/eslint/issues/4787
 */
-import path from 'path';
+import path from "path";
 import webpack from 'webpack';
+import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
 
 const webpackConfig = {
 	module: {
@@ -30,6 +31,10 @@ const webpackConfig = {
 			}
 		]
 	},
+	ecmaFeatures: {
+		'jsx': true,
+		'modules': true
+	},
 	eslint: {
 		failOnWarning: false,
 		failOnError: true
@@ -41,10 +46,25 @@ const webpackConfig = {
 			compress: {
 				warnings: false
 			}
+		}),
+		new ModernizrWebpackPlugin({
+			filename: 'modernizr.js',
+			minify: {
+				output: {
+					comments: false,
+					beautify: false
+				}
+			},
+			'feature-detects': [
+				"svg",
+				"css/transforms",
+				"css/transforms3d",
+				"css/transitions"
+			]
 		})
 	],
 	resolve: {
-		root: path.resolve("./root"),
+		root: path.resolve("./app"),
 	},
 	output: {
 		filename: '[name].js'
