@@ -49,7 +49,7 @@ const webpackConfig = {
 	output: {
 		filename: '[name].js'
 	},
-	devtool: 'source-map'
+	devtool: 'eval-cheap-module-source-map'
 }
 
 export default webpackConfig;
