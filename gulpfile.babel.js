@@ -33,7 +33,8 @@ gulp.task('styles', () => {
 		}))
 		.pipe($.sourcemaps.write('.'))
 		.pipe($.if(argv.build, gulp.dest(`${dir.dist}/styles`), gulp.dest(`${dir.app}/styles`)))
-		.pipe(browserSync.stream({match: '**/*.css'}));
+		.pipe(browserSync.stream({match: '**/*.css'}))
+		.pipe($.notify({ message: 'Styles Task Completed.', onLast: true }));
 });
 
 gulp.task('scripts', () => {
@@ -41,7 +42,8 @@ gulp.task('scripts', () => {
 		.pipe($.plumber())
 		.pipe($.webpackStream(webpackConfig, $.webpack))
 		.pipe($.if(argv.build, gulp.dest(`${dir.dist}/scripts`), gulp.dest(`${dir.app}/scripts`)))
-		.pipe(reload({stream: true}));
+		.pipe(reload({stream: true}))
+		.pipe($.notify({ message: 'Scripts Task Completed.', onLast: true }));
 });
 
 gulp.task('images', () => {
