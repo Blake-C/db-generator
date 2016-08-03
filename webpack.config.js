@@ -7,7 +7,7 @@
  * Eslint config for module loaders:
  * @link https://github.com/eslint/eslint/issues/4787
 */
-import path from "path";
+import path from 'path';
 import webpack from 'webpack';
 import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
 
@@ -56,15 +56,18 @@ const webpackConfig = {
 				}
 			},
 			'feature-detects': [
-				"svg",
-				"css/transforms",
-				"css/transforms3d",
-				"css/transitions"
+				'svg',
+				'css/transforms',
+				'css/transforms3d',
+				'css/transitions'
+			],
+			'options': [
+				'setClasses'
 			]
 		})
 	],
 	resolve: {
-		root: path.resolve("./app"),
+		root: path.resolve('./app'),
 	},
 	output: {
 		filename: '[name].js'
