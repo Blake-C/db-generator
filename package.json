@@ -37,7 +37,10 @@
     "yargs": "^4.3.2"
   },
   "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "jquery": "^3.1.0",
     "jump.js": "^1.0.1",
-    "lscache": "^1.0.7"
+    "lscache": "^1.0.7",
+    "modernizr": "^3.3.1"
   }
 }
