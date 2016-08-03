@@ -1,9 +1,0 @@
-{
-  "name": "yo-digitalblake-2016",
-  "private": true,
-  "devDependencies": {
-    "modernizr": "~2.8.1",
-    "foundation-sites": "^6.2.3",
-    "jquery": "^3.1.0"
-  }
-}
