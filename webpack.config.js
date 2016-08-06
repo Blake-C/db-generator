@@ -12,28 +12,33 @@ import webpack from 'webpack';
 import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
 
 const webpackConfig = {
+	quiet: false,
+	resolve: {
+		root: path.resolve(__dirname, 'app')
+	},
+	entry: {
+		main: 'components/scripts/main.js',
+		app: 'components/scripts/app.jsx',
+	},
+	output: {
+		filename: '[name].js'
+	},
+	devtool: 'eval-cheap-module-source-map',
 	module: {
 		preLoaders: [
 			{
-				test: /\.js?$/,
-				loader: 'eslint',
-				exclude: /(node_modules|bower_components)/,
+				test: /\.jsx?$/,
+				loader: 'eslint-loader',
+				exclude: /(node_modules|bower_components')/
 			}
 		],
 		loaders: [
 			{
-				test: /\.js?$/,
-				exclude: /(node_modules|bower_components)/,
+				test: /\.jsx?$/,
 				loader: 'babel',
-				query: {
-					presets: ['es2015']
-				}
+				exclude: /(node_modules|bower_components)/
 			}
 		]
-	},
-	ecmaFeatures: {
-		'jsx': true,
-		'modules': true
 	},
 	eslint: {
 		failOnWarning: false,
@@ -65,14 +70,7 @@ const webpackConfig = {
 				'setClasses'
 			]
 		})
-	],
-	resolve: {
-		root: path.resolve('./app'),
-	},
-	output: {
-		filename: '[name].js'
-	},
-	devtool: 'eval-cheap-module-source-map'
+	]
 }
 
 export default webpackConfig;

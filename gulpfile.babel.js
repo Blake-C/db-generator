@@ -96,10 +96,10 @@ gulp.task('serve', ['styles', 'scripts', 'images', 'icons', 'fonts'], () => {
 		'app/images/**/*'
 	]).on('change', reload);
 
-	gulp.watch(`${dir.components}/styles/**/*.scss`, ['styles']);
+	gulp.watch(`${dir.components}/styles/**/*`, ['styles']);
 	gulp.watch(`${dir.components}/images/**/*`, ['images']).on('change', reload);
 	gulp.watch(`${dir.components}/icons/**/*`, ['icons']).on('change', reload);
-	gulp.watch(`${dir.components}/scripts/**/*.js`, ['scripts']).on('change', reload);
+	gulp.watch(`${dir.components}/scripts/**/*`, ['scripts']).on('change', reload);
 	gulp.watch(`${dir.components}/fonts/**/*`, ['fonts']).on('change', reload);
 });
 
