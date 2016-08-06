@@ -24,6 +24,15 @@ const webpackConfig = {
 		filename: '[name].js'
 	},
 	devtool: 'eval-cheap-module-source-map',
+	eslint: {
+		failOnWarning: false,
+		failOnError: true
+	},
+
+	/**
+	 * Modules
+	 *
+	 */
 	module: {
 		preLoaders: [
 			{
@@ -40,10 +49,11 @@ const webpackConfig = {
 			}
 		]
 	},
-	eslint: {
-		failOnWarning: false,
-		failOnError: true
-	},
+
+	/**
+	 * Plugins
+	 *
+	 */
 	plugins: [
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
