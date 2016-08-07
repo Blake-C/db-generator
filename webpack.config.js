@@ -10,9 +10,9 @@
 import path from 'path';
 import webpack from 'webpack';
 import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
+import validaate from 'webpack-validator';
 
-const webpackConfig = {
-	quiet: false,
+const webpackConfig = validaate({
 	resolve: {
 		root: path.resolve(__dirname, 'app')
 	},
@@ -23,7 +23,7 @@ const webpackConfig = {
 	output: {
 		filename: '[name].js'
 	},
-	devtool: 'eval-cheap-module-source-map',
+	devtool: 'cheap-module-eval-source-map',
 	eslint: {
 		failOnWarning: false,
 		failOnError: true
@@ -81,6 +81,6 @@ const webpackConfig = {
 			]
 		})
 	]
-}
+})
 
 export default webpackConfig;
