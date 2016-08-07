@@ -13,12 +13,10 @@ import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
 import validaate from 'webpack-validator';
 
 const webpackConfig = validaate({
-	resolve: {
-		root: path.resolve(__dirname, 'app')
-	},
+	context: path.resolve(__dirname, './app/'),
 	entry: {
-		main: 'components/scripts/main.js',
-		app: 'components/scripts/app.jsx',
+		main: './components/scripts/main.js',
+		app: './components/scripts/app.jsx',
 	},
 	output: {
 		filename: '[name].js'
