@@ -19,7 +19,7 @@ const webpackConfig = validaate({
 		app: './components/scripts/app.jsx',
 	},
 	output: {
-		filename: '[name].js'
+		filename: 'bundle.[name].js'
 	},
 	devtool: 'cheap-module-eval-source-map',
 	eslint: {
@@ -61,7 +61,7 @@ const webpackConfig = validaate({
 			}
 		}),
 		new ModernizrWebpackPlugin({
-			filename: 'modernizr.js',
+			filename: 'bundle.modernizr.js',
 			minify: {
 				output: {
 					comments: false,
