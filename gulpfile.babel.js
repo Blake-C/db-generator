@@ -6,7 +6,6 @@ import connect from 'gulp-connect-php';
 import del from 'del';
 import yargs from 'yargs';
 import pngquant from 'imagemin-pngquant';
-import webpackConfig from "./webpack.config.js";
 
 const $ = gulpLoadPlugins({pattern: ["*"]});
 const reload = browserSync.reload;
@@ -35,15 +34,6 @@ gulp.task('styles', () => {
 		.pipe($.if(argv.build, gulp.dest(`${dir.dist}/styles`), gulp.dest(`${dir.app}/styles`)))
 		.pipe(browserSync.stream({match: '**/*.css'}))
 		.pipe($.notify({ message: 'Styles Task Completed.', onLast: true }));
-});
-
-gulp.task('scripts', () => {
-	return gulp.src([`${dir.components}/scripts/main.js`])
-		.pipe($.plumber())
-		.pipe($.webpackStream(webpackConfig, $.webpack))
-		.pipe($.if(argv.build, gulp.dest(`${dir.dist}/scripts`), gulp.dest(`${dir.app}/scripts`)))
-		.pipe(reload({stream: true}))
-		.pipe($.notify({ message: 'Scripts Task Completed.', onLast: true }));
 });
 
 gulp.task('images', () => {

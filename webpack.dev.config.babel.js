@@ -11,15 +11,14 @@ import path from 'path';
 import webpack from 'webpack';
 import ModernizrWebpackPlugin from 'modernizr-webpack-plugin';
 import validaate from 'webpack-validator';
+import entryFiles from './webpack._entryFiles.config';
+import modernizrRules from './webpack._modernizrRules.config';
 
 const webpackConfig = validaate({
 	context: path.resolve(__dirname, './app/'),
-	entry: {
-		main: './components/scripts/main.js',
-		app: './components/scripts/app.jsx',
-	},
+	entry: entryFiles,
 	output: {
-		filename: 'bundle.[name].js'
+		filename: './app/assets/scripts/bundle.[name].js'
 	},
 	devtool: 'cheap-module-eval-source-map',
 	eslint: {
@@ -53,27 +52,9 @@ const webpackConfig = validaate({
 	 *
 	 */
 	plugins: [
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		}),
 		new ModernizrWebpackPlugin({
-			filename: 'bundle.modernizr.js',
-			minify: {
-				output: {
-					comments: false,
-					beautify: false
-				}
-			},
-			'feature-detects': [
-				'svg',
-				'css/transforms',
-				'css/transforms3d',
-				'css/transitions'
-			],
+			filename: './app/assets/scripts/bundle.modernizr.js',
+			'feature-detects': modernizrRules,
 			'options': [
 				'setClasses'
 			]
